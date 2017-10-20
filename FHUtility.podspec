@@ -7,9 +7,9 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = 'FHUtility'
-  s.version          = '0.1.1'
-  s.summary          = 'FHUtility for Utilities'
+	s.name             = 'FHUtility'
+	s.version          = '0.2.0'
+	s.summary          = 'FHUtility for Utilities'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -17,21 +17,36 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
-  s.description      = <<-DESC
+s.description      = <<-DESC
 Utility pod for iOS project.
-                       DESC
+DESC
 
-  s.homepage         = 'https://github.com/SpectacularFigo/FHUtility.git'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
-  s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'Figo Han' => 'spectacularfigo@gmail.com' }
-  s.source           = { :git => 'https://github.com/SpectacularFigo/FHUtility.git', :tag => s.version.to_s }
+s.homepage         = 'https://github.com/SpectacularFigo/FHUtility.git'
+s.license          = { :type => 'MIT', :file => 'LICENSE' }
+s.author           = { 'Figo Han' => 'spectacularfigo@gmail.com' }
+s.source           = { :git => 'https://github.com/SpectacularFigo/FHUtility.git', :tag => s.version.to_s }
+s.ios.deployment_target = '8.0'
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
 
-  s.ios.deployment_target = '8.0'
 
-  s.source_files = 'FHUtility/Classes/**/*'
+=begin
+    When your pod have subpods, comment out the line below
+=end
+
+  # s.source_files = 'FHUtility/Classes/**/*'    
   
+  s.subspec 'Utility' do |u|
+  	u.source_files = 'FHUtility/Classes/Utility/**/*'
+  end
+
+  s.subspec 'Extension' do |e|
+  	e.source_files = 'FHUtility/Classes/Extension/**/*'
+  end
+
+  s.subspec 'Network' do |n|
+  	n.source_files = 'FHUtility/Classes/Network/**/*'
+  end
   # s.resource_bundles = {
   #   'FHUtility' => ['FHUtility/Assets/*.png']
   # }
